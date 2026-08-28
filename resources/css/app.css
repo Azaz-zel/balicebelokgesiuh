@@ -1,0 +1,250 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-display: Georgia, 'Times New Roman', serif;
+
+    --color-cream: #F7F3EA;
+    --color-warm: #EAE1D2;
+    --color-earth: #6B4F3A;
+    --color-dark-earth: #2F241D;
+    --color-leaf: #52624C;
+    --color-gold: #B08A5A;
+}
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+[data-reveal] {
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+        opacity 800ms ease,
+        transform 800ms ease;
+}
+
+[data-reveal].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   REVEAL VARIANTS
+========================================================= */
+
+[data-reveal="left"] {
+    transform: translateX(-30px);
+}
+
+[data-reveal="right"] {
+    transform: translateX(30px);
+}
+
+[data-reveal="scale"] {
+    transform: scale(0.96);
+}
+
+[data-reveal="left"].is-visible,
+[data-reveal="right"].is-visible,
+[data-reveal="scale"].is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+
+/* =========================================================
+   STAGGER
+========================================================= */
+
+[data-delay="100"] {
+    transition-delay: 100ms;
+}
+
+[data-delay="200"] {
+    transition-delay: 200ms;
+}
+
+[data-delay="300"] {
+    transition-delay: 300ms;
+}
+
+[data-delay="400"] {
+    transition-delay: 400ms;
+}
+
+[data-delay="500"] {
+    transition-delay: 500ms;
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    [data-reveal] {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+}
+
+/* =========================================================
+   AUTO SECTION REVEAL
+========================================================= */
+
+.section-reveal {
+    opacity: 0;
+    transform: translateY(35px);
+
+    transition:
+        opacity 900ms ease,
+        transform 900ms ease;
+}
+
+.section-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   CARD HOVER
+========================================================= */
+
+main article,
+main [class*="rounded-2xl"] {
+    transition:
+        transform 400ms ease,
+        box-shadow 400ms ease;
+}
+
+main article:hover,
+main [class*="rounded-2xl"]:hover {
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   IMAGE HOVER
+========================================================= */
+
+main img {
+    transition:
+        transform 700ms ease;
+}
+
+main img:hover {
+    transform: scale(1.03);
+}
+
+
+/* =========================================================
+   BUTTON MICRO INTERACTION
+========================================================= */
+
+main a.rounded-full,
+nav a.rounded-full {
+    transition:
+        transform 300ms ease,
+        opacity 300ms ease,
+        box-shadow 300ms ease;
+}
+
+main a.rounded-full:hover,
+nav a.rounded-full:hover {
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .section-reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    main article,
+    main [class*="rounded-2xl"],
+    main img,
+    main a.rounded-full,
+    nav a.rounded-full {
+        transition: none;
+    }
+
+    main article:hover,
+    main [class*="rounded-2xl"]:hover,
+    main img:hover,
+    main a.rounded-full:hover,
+    nav a.rounded-full:hover {
+        transform: none;
+    }
+
+}
+
+/* =========================================================
+   FIRST SECTION
+========================================================= */
+
+.section-reveal-first {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   OTHER SECTIONS
+========================================================= */
+
+.section-reveal {
+    opacity: 0;
+    transform: translateY(35px);
+
+    transition:
+        opacity 900ms ease,
+        transform 900ms ease;
+}
+
+.section-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================================
+   MOBILE NAVIGATION
+========================================================= */
+
+.mobile-menu {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+
+    transform: translateY(-10px);
+
+    transition:
+        max-height 400ms ease,
+        opacity 300ms ease,
+        transform 400ms ease;
+}
+
+.mobile-menu.is-open {
+    max-height: 500px;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+html {
+    scroll-behavior: smooth;
+}
